@@ -2,69 +2,89 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>ECharts</title>
+    <title>新疆资源雷达图</title>
     <!-- 引入刚刚下载的 ECharts 文件 -->
     <script src="echarts.js"></script>
 </head>
-<body style="background-color:#00192E;">                  <!-- 设置页面背景颜色 -->
-    <style>
-        #main {
-            display: flex;
-            justify-content: space-between;
-            margin: 15px;
-            height: 550px
-        }
-        html,
-        body {
-          width: 100%;
-        }
-    </style>
-<body>
+<body style="background-color:#144A74;">                  <!-- 设置页面背景颜色 -->
+  <style>
+      #main {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px;
+        height: 550px
+      }
+      html,
+      body {
+        width: 100%;
+      }
+  </style>
+  <body>
     <div id="main">
-        <div id="description" style="color: ghostwhite">
+      <div id="description" style="color: ghostwhite">
     </div>
 
-</body>
-    <div id="main"></div>
-    <script type="text/javascript">
-var chartDom = document.getElementById('main');
-var myChart = echarts.init(chartDom);
-var option;
+  </body>
+  <div id="main"></div>
+  <script type="text/javascript">
+  var chartDom = document.getElementById('main');
+  var myChart = echarts.init(chartDom);
+  var option;
+
 
 option = {
-    backgroundColor: '#161627',
-    title: {
-        text: 'Resources Radar',
-        textStyle: {
-            color: '#eee'
-        }
-    },
-    tooltip: {
-        trigger: 'axis'
-    },
-    legend: {
-        left: 'center',
-        data: [
-            'China', 'Xinjiang', 'Expection'
-        ],
-        textStyle: {
-            color: '#fff',
-            fontSize: 14
-        },
-    },
+  title: { 
+    text: '新疆资源雷达图',
+    textStyle: {
+      color: '#C4D7D6'
+    }
+  },
+  
+  tooltip: { trigger: 'axis' },
+  legend: {
+    left: 'center',
+    data: [ '全国平均油气资源', '新疆油气资源', '全国平均矿产资源', '新疆矿产资源', '全国平均农林业资源', '新疆农林业资源' ],
+    textStyle: {
+      color: '#CDD1D3',
+      fontSize: 14
+    }
+  },
   radar: [
+    { 
+      indicator: [
+        { text: '焦炭生产量/万吨', max: 8500 }, 
+        { text: '原油生产量/万吨', max: 3000 }, 
+        { text: '汽油生产量/万吨', max: 2700 }, 
+        { text: '柴油生产量/万吨', max: 3000 }, 
+        { text: '煤油生产量/万吨', max: 980 },
+        { text: '天然气生产量/亿立方米', max: 400}
+      ],
+      radius: 120,
+      center: ['20%', '35%']
+    },
     {
       indicator: [
-        { text: 'land', max: 960 },
-        { text: 'water', max: 1833 },
-        { text: 'woods', max: 29 },
-        { text: 'iron', max: 8885 },
-        { text: 'iron-chromium', max: 12614 },
-        { text: 'granite', max: 589 }
+        { text: '铁矿储量/亿吨', max: 20 }, 
+        { text: '铜矿储量/万吨', max: 290 }, 
+        { text: '铅矿储量/万吨', max: 200 }, 
+        { text: '锌矿储量/万吨', max: 490 }, 
+        { text: '硫铁矿储量/万吨', max: 15000 }
       ],
-      center: ['50%', '50%'],
-      radius: 160
+      radius: 120,
+      center: ['50%', '70%']
     },
+    {
+      indicator: [
+        { text: '森林蓄积量亿立方米', max: 11 }, 
+        { text: '粮食产量万吨', max: 4400 }, 
+        { text: '谷物产量万吨', max: 3900 }, 
+        { text: '小麦产量万吨', max: 890 }, 
+        { text: '棉花产量万吨', max: 520 },
+        { text: '蔬菜产量万吨', max: 5000 }
+      ],
+      radius: 120,
+      center: ['80%', '35%']
+    }
   ],
   series: [
     {
@@ -72,21 +92,34 @@ option = {
       tooltip: {
         trigger: 'item'
       },
-      // radarIndex: 1,
       areaStyle: {},
       data: [
-        {
-          value: [960, 1833, 29, 8885, 12614, 589],
-          name: 'China'
-        },
-        {
-          value: [163, 706, 4.98, 184, 1110, 92.8],
-          name: 'Xinjiang'
-        },
-        {
-          value: [163, 305.5, 4.83, 1480, 2102, 98.1],
-          name: 'Expection'
-        }
+        { value: [1682.72, 561.806, 522.99, 594.22, 195.28, 79.84], name: '全国平均油气资源' }, 
+        { value: [2246.86, 2752.08, 423.24, 857.19, 110.61, 387.59], name: '新疆油气资源' }
+      ]
+    },
+    {
+      type: 'radar',
+      tooltip: {
+        trigger: 'item'
+      },
+      radarIndex: 1,
+      areaStyle: {},
+      data: [
+        { value: [7.19, 97.07, 66.99, 164.41, 5112.36], name: '全国平均矿产资源' }, 
+        { value: [8.26, 224.76, 102.62, 196.35, 3774.87], name: '新疆矿产资源' }
+      ]
+    },
+    {
+      type: 'radar',
+      tooltip: {
+        trigger: 'item'
+      },
+      radarIndex: 2,
+      areaStyle: {},
+      data: [
+        { value: [5.5, 2202.73, 1989.49, 447.51, 38.2, 2501.57], name: '全国平均农林业资源' }, 
+        { value: [3.92, 1735.78, 1557.41, 582.09, 512.8515, 1620.44], name: '新疆农林业资源' }
       ]
     }
   ]
@@ -95,5 +128,10 @@ option = {
 option && myChart.setOption(option);
 
 </script>
+
+<div id="menu" style="background-color:#BACCD9;height:100px;width:200px;float:left;">
+  <b>交互提示：</b><br>
+  点击图例切换雷达图的显示内容<br>
+  看得更清晰</div>
 </body>
 </html>
