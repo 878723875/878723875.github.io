@@ -6,7 +6,7 @@
     <!-- 引入刚刚下载的 ECharts 文件 -->
     <script src="echarts.js"></script>
 </head>
-<body style="background-color:#144A74;">                  <!-- 设置页面背景颜色 -->
+<body style="background-color:#00192E;">                  <!-- 设置页面背景颜色 -->
   <style>
       #main {
         display: flex;
@@ -34,7 +34,8 @@
 
 option = {
   title: { 
-    text: '新疆资源雷达图',
+    text: '新疆——山山有宝，盆盆有油',
+    right: 'middle',
     textStyle: {
       color: '#C4D7D6'
     }
@@ -42,7 +43,8 @@ option = {
   
   tooltip: { trigger: 'axis' },
   legend: {
-    left: 'center',
+    orient: 'vertical',
+    left: 'left',
     data: [ '全国平均油气资源', '新疆油气资源', '全国平均矿产资源', '新疆矿产资源', '全国平均农林业资源', '新疆农林业资源' ],
     textStyle: {
       color: '#CDD1D3',
@@ -60,9 +62,10 @@ option = {
         { text: '天然气生产量/亿立方米', max: 400}
       ],
       radius: 120,
-      center: ['20%', '72%']
+      center: ['15%', '72%']
     },
     {
+      title:'矿产',
       indicator: [
         { text: '铁矿储量/亿吨', max: 20 }, 
         { text: '铜矿储量/万吨', max: 290 }, 
@@ -71,7 +74,7 @@ option = {
         { text: '硫铁矿储量/万吨', max: 15000 }
       ],
       radius: 120,
-      center: ['50%', '35%']
+      center: ['37%', '35%']
     },
     {
       indicator: [
@@ -83,7 +86,7 @@ option = {
         { text: '蔬菜产量万吨', max: 5000 }
       ],
       radius: 120,
-      center: ['80%', '72%']
+      center: ['59%', '72%']
     }
   ],
   series: [
@@ -139,7 +142,7 @@ option && myChart.setOption(option);
    
 </div> -->
 
-<div id="menu" style="background-color:#BACCD9;height:90px;width:180px;float:left;">
+<div id="menu" style="background-color:#00192E;color: ghostwhite";height:90px;width:180px;float:left;">
   <b>交互提示：</b><br>
   点击图例切换雷达图的显示内容<br>
   看得更清晰</div>
