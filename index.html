@@ -5,37 +5,27 @@
     <title>新疆——山山有宝，盆盆有油</title>
     <!-- 引入刚刚下载的 ECharts 文件 -->
     <script src="echarts.js"></script>
-    <style>
-      #main {
-            display: flex;
-            justify-content: space-between;
-            margin: 15px;
-        }
-        #description {
-            /*border: 2px solid #bfa;*/
-            width: 550px;
-            height: 500px;
-            left: 20px;
-            /*overflow: scroll;*/
-        }
-        p{
-            text-indent: 2em;
-        }
-  </style>
 </head>
-    
-    <body style="background-color:#00192E;">                  <!-- 设置页面背景颜色 -->
-<h1 align="center"style=" color:white;">中国四大地理区域的街道方向熵统计</h1>
-<body>
-<div id="main">
-    <div id="description" style="color: ghostwhite">
-    </div>
-    <!-- 定义图表显示区域 -->
-    <div id="myDiv" style="width: 1000px; height: 600px; "></div>
-</div>
-
-    
 <body style="background-color:#00192E;">                  <!-- 设置页面背景颜色 -->
+  <style>
+      #main {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px;
+        height: 550px
+      }
+      html,
+      body {
+        width: 100%;
+      }
+  </style>
+  <body>
+    <div id="main">
+      <div id="description" style="color: ghostwhite">
+    </div>
+
+  </body>
+  <div id="main"></div>
   <script type="text/javascript">
   var chartDom = document.getElementById('main');
   var myChart = echarts.init(chartDom);
